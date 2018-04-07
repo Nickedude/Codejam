@@ -35,6 +35,7 @@ def swap(theList, i, j):
 def solve(pair):
     (D,P) = pair            # Unbox pair
     P = list(P)
+    #print(P)
     D = int(D)              # Convery to int
     solved = isSolved(D,P)  # Check if it's solved
     moves = 0               # Counts the number of moves made
@@ -47,6 +48,7 @@ def solve(pair):
         swap(P,i,i-1)           # Perform the move
         moves = moves + 1       # Increment moves
         solved = isSolved(D,P)  # Check if it's solved
+        #print(P)
 
     return (solved,moves)       # Return the solution
 
@@ -61,7 +63,8 @@ for i in range(0,T):
 
 for i in range(0, len(cases)):
     (result, number) = solve(cases[i])
+    base = "Case #" + str(i+1) + ": "
     if(result):
-        print(number)
+        print(base + str(number))
     else:
-        print("IMPOSSIBLE")
+        print(base + "IMPOSSIBLE")
